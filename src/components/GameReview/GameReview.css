@@ -1,0 +1,273 @@
+.game-review-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.review-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.analyze-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #81b64c;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.analyze-btn:hover {
+  background: #6fa33f;
+}
+
+.review-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 20px;
+}
+
+.board-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.board-with-eval {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.nav-btn:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+}
+
+.nav-btn.play-btn {
+  width: 48px;
+}
+
+.nav-btn.playing {
+  background: #81b64c;
+  color: white;
+}
+
+.side-panel {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  max-height: calc(100vh - 100px);
+}
+
+.classification-summary {
+  border-top: 1px solid var(--border-color);
+  padding: 12px 16px;
+  flex-shrink: 0;
+}
+
+.accuracy-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.accuracy-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 50px;
+}
+
+.accuracy-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accuracy-pct {
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.accuracy-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.summary-count {
+  width: 24px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.white-count {
+  text-align: right;
+}
+
+.black-count {
+  text-align: left;
+}
+
+.summary-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.summary-label {
+  flex: 1;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* ─── Mobile ─── */
+
+@media (max-width: 768px) {
+  .review-header {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .review-header h2 {
+    font-size: 15px;
+  }
+
+  .analyze-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .game-review-screen {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  .review-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+    overflow: visible;
+    flex: none;
+  }
+
+  .board-section {
+    width: 100%;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .nav-controls {
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .nav-btn {
+    width: 44px;
+    height: 40px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav-btn.play-btn {
+    width: 52px;
+  }
+
+  .side-panel {
+    width: 100%;
+    max-height: none;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .move-list-container {
+    max-height: 200px;
+  }
+
+  .classification-summary {
+    padding: 10px 12px;
+  }
+
+  .accuracy-pct {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,8 @@
+node_modules
+dist
+.git
+*.png
+screenshot-*.png
+*.log
+.vscode
+.idea

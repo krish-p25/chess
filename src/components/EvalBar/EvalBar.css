@@ -1,0 +1,52 @@
+.eval-bar {
+  width: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  align-self: stretch;
+}
+
+.eval-section {
+  display: flex;
+  justify-content: center;
+  transition: flex 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.eval-section:first-child {
+  align-items: flex-end;
+}
+
+.eval-section:last-child {
+  align-items: flex-start;
+}
+
+.eval-white {
+  background: #f0f0f0;
+}
+
+.eval-black {
+  background: #403d39;
+}
+
+.eval-text {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 2px;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.eval-white .eval-text {
+  color: #403d39;
+}
+
+.eval-black .eval-text {
+  color: #b0ada9;
+}
