@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# Chess Match Analysis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based tool for analyzing Chess.com games using the Stockfish chess engine. View your games, step through moves, and see computer evaluations for every position.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Chess.com Integration**: Fetch games directly from any Chess.com player profile
+- **Real-time Analysis**: Analyze positions using Stockfish 18 engine
+- **Interactive Board**: Step through moves with a visual chessboard
+- **Evaluation Display**: See move evaluations with a visual eval bar
+- **Game Filtering**: Filter games by color (white/black), result (win/loss/draw), and time control
+- **Browser History**: Navigate through games and positions with browser back/forward
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **Chess Logic**: chess.js
+- **Chessboard UI**: react-chessboard
+- **Engine**: Stockfish 18 (WASM)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The app will open at `http://localhost:5173` by default.
+
+### Build
+
+```bash
+npm run build
+```
+
+## How to Use
+
+1. **Enter a Chess.com Username**: Start by typing in any Chess.com username
+2. **Select a Game**: Browse your games with filtering options (color, result, time control)
+3. **Analyze**: View the game board, move list, and engine evaluations
+4. **Navigate**: Step through moves or click on any move to jump to that position
+
+## Project Structure
+
+```
+src/
+├── components/          # React UI components
+│   ├── Board/          # Interactive chessboard display
+│   ├── GameSelector/   # Game list and filtering
+│   ├── GameReview/     # Game analysis view
+│   ├── MoveList/       # Move notation and navigation
+│   ├── EvalBar/        # Position evaluation display
+│   ├── PlayerInfo/     # Player details display
+│   └── ...
+├── hooks/              # Custom React hooks
+│   ├── useChessGame    # Game state management
+│   ├── useChesscomApi  # Chess.com API integration
+│   └── useStockfish    # Engine analysis
+├── services/           # Business logic
+│   ├── chesscom.ts    # Chess.com API client
+│   ├── engine.ts      # Stockfish engine wrapper
+│   └── ...
+└── types/             # TypeScript type definitions
+```
+
+## Performance Notes
+
+- Stockfish analysis runs in a Web Worker to avoid blocking the UI
+- Games are fetched from Chess.com's public API with pagination support
+- Analysis can take several minutes for full games depending on position complexity
+
+## Linting
+
+```bash
+npm run lint
 ```
