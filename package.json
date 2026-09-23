@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && docker build -t chess:latest . && docker run -p 3001:3001 chess:latest"
+    "deploy": "npm run build && docker build -t chess:latest . && docker run --name chess -p 3001:3001 chess:latest"
   },
   "dependencies": {
     "chess.js": "^1.4.0",
